@@ -8,25 +8,28 @@ interface InvitationProps {
 
 const content = {
   ru: {
-    guest: 'Уважаемый гость',
+    guest: 'Дорогой Гость',
+    prefix: 'Дорогой(ая)',
     title: 'Приглашаем Вас на нашу свадьбу',
-    description: 'Мы будем рады разделить этот счастливый день вместе с вами.',
+    description: 'Мы будем рады разделить этот счастливый день вместе с вами. Ваше присутствие наполнит наш праздник особым теплом.',
     langRu: 'Русский',
     langEn: 'English',
     langUz: "O'zbek",
   },
   en: {
     guest: 'Dear Guest',
+    prefix: 'Dear',
     title: 'You are invited to our wedding',
-    description: 'We would be honored to share this happy day with you.',
+    description: 'We would be honored to share this happy day with you. Your presence will fill our celebration with special warmth.',
     langRu: 'Русский',
     langEn: 'English',
     langUz: "O'zbek",
   },
   uz: {
-    guest: 'Hurmatli mehmon',
+    guest: 'Hurmatli Mehmon',
+    prefix: 'Hurmatli',
     title: "Sizni to'yimizga taklif etamiz",
-    description: "Ushbu baxtli kunimizda sizni kutib qolamiz.",
+    description: "Ushbu baxtli kunimizda sizni kutib qolamiz. Tashrifingiz to'yimizni yanada fayzli qiladi.",
     langRu: 'Русский',
     langEn: 'English',
     langUz: "O'zbek",
@@ -52,7 +55,7 @@ const formatName = (raw?: string) => {
 export default function Invitation({ lang, rawName }: InvitationProps) {
   const t = content[lang];
   const formattedName = formatName(rawName);
-  const displayName = formattedName ? formattedName : t.guest;
+  const displayName = formattedName ? `${t.prefix} ${formattedName}` : t.guest;
 
   const links = {
     ru: rawName ? `/${rawName}` : '/',
@@ -62,19 +65,17 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
   return (
     <main className="container">
-      <div className="card">
-        <div className="inner-border">
-          <h2 className="greeting">{displayName},</h2>
-          <h1 className="title">{t.title}</h1>
-          <p className="description">{t.description}</p>
-          <div className="divider">♥</div>
-          {/* <nav className="langs">
-            <Link href={links.ru} className={lang === 'ru' ? 'active' : ''}>{t.langRu}</Link>
-            <Link href={links.en} className={lang === 'en' ? 'active' : ''}>{t.langEn}</Link>
-            <Link href={links.uz} className={lang === 'uz' ? 'active' : ''}>{t.langUz}</Link>
-          </nav> */}
-        </div>
+      <h2 className="greeting-cursive">{displayName}</h2>
+      
+      <div className="names-cursive">
+        Maxmudxon & Dilovarxon
       </div>
+
+      <nav className="langs">
+        <Link href={links.ru} className={lang === 'ru' ? 'active' : ''}>{t.langRu}</Link>
+        <Link href={links.en} className={lang === 'en' ? 'active' : ''}>{t.langEn}</Link>
+        <Link href={links.uz} className={lang === 'uz' ? 'active' : ''}>{t.langUz}</Link>
+      </nav>
     </main>
   );
 }

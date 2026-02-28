@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Montserrat, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
-const cormorant = Cormorant_Garamond({ 
-  subsets: ["latin", "cyrillic"], 
-  weight: ["400", "600", "700"],
-  variable: "--font-cormorant",
+const pinyonScript = Pinyon_Script({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -17,8 +17,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Wedding Invitation",
-  description: "You are invited to our wedding",
+  title: "Amirxon & Rayxona",
+  description: "Wedding Invitation",
 };
 
 export const viewport: Viewport = {
@@ -32,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${pinyonScript.variable} ${montserrat.variable}`}>
       <body>
         {children}
       </body>
