@@ -68,11 +68,11 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
           <h1 className="title">{t.title}</h1>
           <p className="description">{t.description}</p>
           <div className="divider">♥</div>
-          <nav className="langs">
+          {/* <nav className="langs">
             <Link href={links.ru} className={lang === 'ru' ? 'active' : ''}>{t.langRu}</Link>
             <Link href={links.en} className={lang === 'en' ? 'active' : ''}>{t.langEn}</Link>
             <Link href={links.uz} className={lang === 'uz' ? 'active' : ''}>{t.langUz}</Link>
-          </nav>
+          </nav> */}
         </div>
       </div>
     </main>
