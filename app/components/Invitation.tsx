@@ -55,7 +55,14 @@ const formatName = (raw?: string) => {
 export default function Invitation({ lang, rawName }: InvitationProps) {
   const t = content[lang];
   const formattedName = formatName(rawName);
-  const displayName = formattedName ? `${t.prefix} ${formattedName}` : t.guest;
+  const displayName = formattedName ? (
+    <>
+      {t.prefix} <br />
+      {formattedName}
+    </>
+  ) : (
+    t.guest
+  );
 
   const links = {
     ru: rawName ? `/${rawName}` : '/',

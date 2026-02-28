@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Amirxon & Rayxona",
+  title: "Maxmudxon & Dilovarxon",
   description: "Wedding Invitation",
 };
 
