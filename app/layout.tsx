@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat, Pinyon_Script } from "next/font/google";
 import "./globals.css";
+import MusicPlayer from "./components/MusicPlayer";
 
 const pinyonScript = Pinyon_Script({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
     <html lang="en" className={`${pinyonScript.variable} ${montserrat.variable}`}>
       <body>
         {children}
+        <MusicPlayer />
       </body>
     </html>
   );
