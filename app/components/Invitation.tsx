@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { content, Language } from "./invitation/content";
 import Petals from "./invitation/Petals";
 import PageDecorations from "./invitation/PageDecorations";
@@ -38,6 +39,9 @@ const formatName = (raw?: string) => {
 
 export default function Invitation({ lang, rawName }: InvitationProps) {
   const t = content[lang];
+  const pathname = usePathname();
+  const isNoGallery = pathname?.startsWith("/no");
+  
   const formattedName = formatName(rawName);
   const displayName = formattedName ? (
     <>
@@ -98,8 +102,12 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
       
       <EventDetails t={t} />
       
-      <div className="sep-full"></div>
-      <Gallery t={t} />
+      {!isNoGallery && (
+        <>
+          <div className="sep-full"></div>
+          <Gallery t={t} />
+        </>
+      )}
       
       <div className="sep-full"></div>
       <CrossDivider type="d" />
