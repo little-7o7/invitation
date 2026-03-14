@@ -25,21 +25,24 @@ export default function MusicPlayer() {
 
     // Start music on first scroll
     const handleScroll = async () => {
-      if (audio.paused) {
-        const success = await playAudio();
-        if (success) {
-          window.removeEventListener("scroll", handleScroll);
-        }
-      } else {
-        window.removeEventListener("scroll", handleScroll);
+      const success = await playAudio();
+      if (success) {
+        removeListeners();
       }
     };
 
     // Also start on click or touch as fallback
     const handleInteraction = async () => {
-      if (audio.paused) {
-        await playAudio();
+      const success = await playAudio();
+      if (success) {
+        removeListeners();
       }
+    };
+
+    const removeListeners = () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("click", handleInteraction);
+      document.removeEventListener("touchstart", handleInteraction);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -47,13 +50,12 @@ export default function MusicPlayer() {
     document.addEventListener("touchstart", handleInteraction);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-      document.removeEventListener("click", handleInteraction);
-      document.removeEventListener("touchstart", handleInteraction);
+      removeListeners();
     };
   }, []);
 
-  const toggleMute = () => {
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
