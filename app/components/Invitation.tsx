@@ -84,7 +84,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
       
       <div className="sep-full"></div>
       
-      <Quote t={t} />
+      {/* <Quote t={t} /> */}
       
       <div className="sep-full"></div>
       <CrossDivider type="b" t={t} />
