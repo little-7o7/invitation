@@ -13,13 +13,15 @@ const COLS = [
 
 type Petal = {
   id: number;
+  type: "heart" | "petal";
   left: string;
   width: string;
   height: string;
-  background: string;
+  color: string;
   animationDuration: string;
   animationDelay: string;
-  borderRadius: string;
+  rotate?: string;
+  borderRadius?: string;
 };
 
 export default function Petals() {
@@ -30,17 +32,27 @@ export default function Petals() {
     const mkPetal = () => {
       const dur = 10 + Math.random() * 16;
       const del = Math.random() * 22;
-      const sz = 5 + Math.random() * 9;
+      const sz = 8 + Math.random() * 10;
+      const type = Math.random() > 0.5 ? "heart" : "petal";
 
-      const newPetal = {
+      const newPetal: Petal = {
         id: nextPetalId.current++,
+        type,
         left: `${Math.random() * 100}vw`,
         width: `${sz}px`,
-        height: `${sz * 1.6}px`,
-        background: COLS[Math.floor(Math.random() * COLS.length)],
+        height: type === "heart" ? `${sz}px` : `${sz * 1.6}px`,
+        color:
+          type === "heart"
+            ? "#ffb7b7"
+            : COLS[Math.floor(Math.random() * COLS.length)],
         animationDuration: `${dur}s`,
         animationDelay: `${del}s`,
-        borderRadius: Math.random() > 0.5 ? "50% 0 50% 0" : "0 50% 0 50%",
+        ...(type === "heart"
+          ? { rotate: `${Math.random() * 360}deg` }
+          : {
+              borderRadius:
+                Math.random() > 0.5 ? "50% 0 50% 0" : "0 50% 0 50%",
+            }),
       };
 
       setPetals((prev) => [...prev, newPetal]);
@@ -61,9 +73,37 @@ export default function Petals() {
 
   return (
     <div id="petals">
-      {petals.map(({ id, ...styleProps }) => (
-        <div key={id} className="petal" style={styleProps}></div>
-      ))}
+      {petals.map(
+        ({ id, type, rotate, color, borderRadius, ...styleProps }) => {
+          if (type === "heart") {
+            return (
+              <svg
+                key={id}
+                className="petal"
+                viewBox="0 0 24 24"
+                style={{
+                  ...styleProps,
+                  fill: color,
+                  transform: `rotate(${rotate})`,
+                }}
+              >
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+              </svg>
+            );
+          }
+          return (
+            <div
+              key={id}
+              className="petal"
+              style={{
+                ...styleProps,
+                background: color,
+                borderRadius: borderRadius,
+              }}
+            ></div>
+          );
+        },
+      )}
     </div>
   );
 }

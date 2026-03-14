@@ -32,7 +32,7 @@ export default function EventDetails({ t }: { t: Translations }) {
         <div className="info-grid stagger">
           <div className="ic rev"><div className="ic-icon">◈</div><div className="ic-l">{t.date}</div><div className="ic-v">{t.dateValue}</div><div className="ic-s">{t.dateSub}</div></div>
           <div className="ic rev"><div className="ic-icon">◎</div><div className="ic-l">{t.timeLabel}</div><div className="ic-v">{t.timeValue}</div><div className="ic-s">{t.timeSub}</div></div>
-          <div className="ic rev"><div className="ic-icon">◇</div><div className="ic-l">{t.location}</div><div className="ic-v" style={{'fontSize':'clamp(15px,3.5vw,20px)'}}>Fotima Sultan</div><div className="ic-s">Samarkand</div></div>
+          <div className="ic rev"><div className="ic-icon">◇</div><div className="ic-l">{t.location}</div><div className="ic-v" style={{'fontSize':'clamp(18px,4.5vw,26px)'}}>Fotima Sultan</div><div className="ic-s">Samarkand</div></div>
         </div>
       </div>
     </div>

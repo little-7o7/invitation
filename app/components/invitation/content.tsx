@@ -19,8 +19,8 @@ export const content = {
     quote: (
       <>
         Две души, одно сердце.
-        <br />В этот день мы скажем &quot;да&quot; совместной жизни —<br />и хотим, чтобы
-        вы были рядом с нами.
+        <br />В этот день мы скажем &quot;да&quot; совместной жизни —<br />и
+        хотим, чтобы вы были рядом с нами.
       </>
     ),
     time: "ВРЕМЯ",
@@ -48,7 +48,7 @@ export const content = {
       "Расположенный в самом сердце древнего Самарканда, ресторан Fotima Sultan предлагает элегантную обстановку, где узбекское гостеприимство сочетается с изысканным современным комфортом — пространство, такое же неподвластное времени, как и любовь, которую мы празднуем.",
     googleMaps: "Google Карты",
     yandexMaps: "Яндекс Карты",
-    open: "Открыть ↗",
+    open: "Открыть",
     ourGratitude: "Наша благодарность",
     wishes: (
       <>
@@ -56,7 +56,7 @@ export const content = {
         словами.
         <br />
         <br />
-        Спасибо, что разделите этот важный момент с нами —<br />с вами он станет
+        Спасибо, что разделите этот важный момент с нами <br /> —<br />с вами он станет
         еще прекраснее.
         <br />
         <br />
@@ -113,7 +113,7 @@ export const content = {
       "Nestled in the heart of ancient Samarkand, Fotima Sultan offers an elegant setting where Uzbek warmth meets refined modern comfort — a space as timeless as the love we celebrate.",
     googleMaps: "Google Maps",
     yandexMaps: "Yandex Maps",
-    open: "Open ↗",
+    open: "Open",
     ourGratitude: "Our Gratitude",
     wishes: (
       <>
@@ -121,7 +121,7 @@ export const content = {
         words.
         <br />
         <br />
-        Thank you for sharing this important moment with us —<br />
+        Thank you for sharing this important moment with us <br /> —<br />
         it will become even more beautiful because of you.
         <br />
         <br />
@@ -178,14 +178,15 @@ export const content = {
       "Qadimiy Samarqandning qoq markazida joylashgan Fotima Sultan restorani sizga bejirim va qulay muhitni taqdim etadi — biz nishonlayotgan sevgi kabi vaqt o'tishiga qaram bo'lmagan makon.",
     googleMaps: "Google xaritalar",
     yandexMaps: "Yandex xaritalar",
-    open: "Ochish ↗",
+    open: "Ochish",
     ourGratitude: "Bizning minnatdorchiligimiz",
     wishes: (
       <>
         Sizning tashrifingiz baxtli kunimizni yanada nurafshon etadi.
         <br />
         <br />
-        Ushbu muhim onlarni biz bilan baham ko&apos;rganingiz uchun rahmat —<br />
+        Ushbu muhim onlarni biz bilan baham ko&apos;rganingiz uchun rahmat <br />—
+        <br />
         siz sababli bu kun yanada go&apos;zalroq bo&apos;ladi.
         <br />
         <br />
