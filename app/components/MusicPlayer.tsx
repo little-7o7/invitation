@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -14,22 +14,31 @@ export default function MusicPlayer() {
       try {
         await audio.play();
         setIsPlaying(true);
+        return true;
       } catch {
         console.log("Autoplay prevented. Waiting for user interaction.");
+        setIsPlaying(false);
+        return false;
       }
     };
 
     // Try playing immediately
     playAudio();
 
-    // Also play upon the first user interaction
-    const handleInteraction = () => {
+    // Also play upon user interaction
+    const handleInteraction = async () => {
       if (audio.paused) {
-        playAudio();
+        const success = await playAudio();
+        if (success) {
+          document.removeEventListener("click", handleInteraction);
+          document.removeEventListener("touchstart", handleInteraction);
+          document.removeEventListener("scroll", handleInteraction);
+        }
+      } else {
+        document.removeEventListener("click", handleInteraction);
+        document.removeEventListener("touchstart", handleInteraction);
+        document.removeEventListener("scroll", handleInteraction);
       }
-      document.removeEventListener("click", handleInteraction);
-      document.removeEventListener("touchstart", handleInteraction);
-      document.removeEventListener("scroll", handleInteraction);
     };
 
     document.addEventListener("click", handleInteraction);

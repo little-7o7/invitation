@@ -1,50 +1,31 @@
-import Link from "next/link";
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
+import { content, Language } from "./invitation/content";
+import Petals from "./invitation/Petals";
+import PageDecorations from "./invitation/PageDecorations";
+import Hero from "./invitation/Hero";
+import Intro from "./invitation/Intro";
+import Quote from "./invitation/Quote";
+import Countdown from "./invitation/Countdown";
+import EventDetails from "./invitation/EventDetails";
+import Gallery from "./invitation/Gallery";
+import Venue from "./invitation/Venue";
+import Gratitude from "./invitation/Gratitude";
+import Footer from "./invitation/Footer";
+import LanguageSelector from "./invitation/LanguageSelector";
+import CrossDivider from "./invitation/CrossDivider";
 
 interface InvitationProps {
-  lang: "ru" | "en" | "uz";
+  lang: Language;
   rawName?: string;
 }
-
-const content = {
-  ru: {
-    guest: "Дорогой Гость",
-    prefix: "Дорогой(ая)",
-    title: "Приглашаем Вас на нашу свадьбу",
-    description:
-      "Мы будем рады разделить этот счастливый день вместе с вами. Ваше присутствие наполнит наш праздник особым теплом.",
-    langRu: "Русский",
-    langEn: "English",
-    langUz: "O'zbek",
-  },
-  en: {
-    guest: "Dear Guest",
-    prefix: "Dear",
-    title: "You are invited to our wedding",
-    description:
-      "We would be honored to share this happy day with you. Your presence will fill our celebration with special warmth.",
-    langRu: "Русский",
-    langEn: "English",
-    langUz: "O'zbek",
-  },
-  uz: {
-    guest: "Hurmatli Mehmon",
-    prefix: "Hurmatli",
-    title: "Sizni to'yimizga taklif etamiz",
-    description:
-      "Ushbu baxtli kunimizda sizni kutib qolamiz. Tashrifingiz to'yimizni yanada fayzli qiladi.",
-    langRu: "Русский",
-    langEn: "English",
-    langUz: "O'zbek",
-  },
-};
 
 const formatName = (raw?: string) => {
   if (!raw) return null;
   try {
     const decoded = decodeURIComponent(raw);
     return decoded
-      .split("_")
+      .split(/[_-]+/)
       .map((word) => {
         if (!word) return "";
         return word.charAt(0).toUpperCase() + word.slice(1);
@@ -73,23 +54,69 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
     uz: rawName ? `/uz/${rawName}` : "/uz",
   };
 
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el => obs.observe(el));
+    
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <main className="container">
-      <h2 className="greeting-cursive">{displayName}</h2>
-
-      <div className="names-cursive">Maxmudxon & Dilovarxon</div>
-
-      <nav className="langs">
-        <Link href={links.ru} className={lang === "ru" ? "active" : ""}>
-          {t.langRu}
-        </Link>
-        <Link href={links.en} className={lang === "en" ? "active" : ""}>
-          {t.langEn}
-        </Link>
-        <Link href={links.uz} className={lang === "uz" ? "active" : ""}>
-          {t.langUz}
-        </Link>
-      </nav>
-    </main>
+    <>
+      <Petals />
+      <PageDecorations />
+      
+      <Hero t={t} displayName={displayName} />
+      
+      <div className="sep-full"></div>
+      <CrossDivider type="a" />
+      <div className="sep-full"></div>
+      
+      <Intro t={t} />
+      
+      <div className="sep-full"></div>
+      
+      <Quote t={t} />
+      
+      <div className="sep-full"></div>
+      <CrossDivider type="b" t={t} />
+      <div className="sep-full"></div>
+      
+      <Countdown t={t} />
+      
+      <div className="sep-full"></div>
+      <CrossDivider type="c" />
+      <div className="sep-full"></div>
+      
+      <EventDetails t={t} />
+      
+      <div className="sep-full"></div>
+      <Gallery t={t} />
+      
+      <div className="sep-full"></div>
+      <CrossDivider type="d" />
+      <div className="sep-full"></div>
+      
+      <Venue t={t} />
+      
+      <div className="sep-full"></div>
+      <CrossDivider type="e" />
+      <div className="sep-full"></div>
+      
+      <Gratitude t={t} />
+      
+      <div className="sep-full"></div>
+      <Footer t={t} />
+      
+      <LanguageSelector t={t} lang={lang} links={links} />
+    </>
   );
 }
