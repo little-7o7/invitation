@@ -76,12 +76,12 @@ export default function Hero({ t, displayName }: HeroProps) {
       </div>
 
       <span className="h-name1">Maxmudxon</span>
-      <span className="h-amp">and</span>
+      <span className="h-amp">&</span>
       <span className="h-name2">Dilovarxon</span>
 
       <div className="h-date-block">
         <div className="h-date-big">04 August 2026</div>
-        <div className="h-date-sub">Wednesday &nbsp;·&nbsp; 19:00 &nbsp;·&nbsp; Samarkand</div>
+        <div className="h-date-sub">{t.day} &nbsp;·&nbsp; 19:00 &nbsp;·&nbsp; {t.locationSub}</div>
       </div>
 
       <div className="scroll-hint">
