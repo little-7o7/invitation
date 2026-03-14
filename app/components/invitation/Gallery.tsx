@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Translations } from "./content";
 
 export default function Gallery({ t }: { t: Translations }) {
@@ -114,35 +115,43 @@ export default function Gallery({ t }: { t: Translations }) {
       </div>
       <div className="gal-grid">
         <div className="gc gc-1 rev-s">
-          <img
-            src="https://i.pinimg.com/736x/0d/b5/39/0db5390dcc385c689c2b3fcc8860e971.jpg"
-            alt="Wedding couple"
+          <Image
+            src="/photo1.png"
+            alt="Gallery photo 1"
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            style={{ objectFit: "cover" }}
             loading="lazy"
-            onError={() => {}}
           />
         </div>
         <div className="gc gc-2 rev-l">
-          <img
-            src="https://i.pinimg.com/736x/e6/21/e7/e621e771b8533e97ae626bfa3f3ce648.jpg"
-            alt="Bride"
+          <Image
+            src="/photo2.png"
+            alt="Gallery photo 2"
+            fill
+            sizes="(max-width: 768px) 50vw, 600px"
+            style={{ objectFit: "cover" }}
             loading="lazy"
-            onError={() => {}}
           />
         </div>
         <div className="gc gc-3 rev-r">
-          <img
-            src="https://i.pinimg.com/736x/61/c3/88/61c388ed7ab3f169b84f48fd6eac834a.jpg"
-            alt="Groom"
+          <Image
+            src="/photo3.png"
+            alt="Gallery photo 3"
+            fill
+            sizes="(max-width: 768px) 50vw, 600px"
+            style={{ objectFit: "cover" }}
             loading="lazy"
-            onError={() => {}}
           />
         </div>
         <div className="gc gc-4 rev-s">
-          <img
-            src="https://i.pinimg.com/736x/0d/b5/39/0db5390dcc385c689c2b3fcc8860e971.jpg"
-            alt="Couple"
+          <Image
+            src="/photo4.png"
+            alt="Gallery photo 4"
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            style={{ objectFit: "cover" }}
             loading="lazy"
-            onError={() => {}}
           />
         </div>
       </div>
