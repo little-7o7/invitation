@@ -31,8 +31,8 @@ export default function MusicPlayer() {
         const success = await playAudio();
         if (success) {
           document.removeEventListener("click", handleInteraction);
-          document.removeEventListener("touchstart", handleInteraction);
-          document.removeEventListener("scroll", handleInteraction);
+          // document.removeEventListener("touchstart", handleInteraction);  // Keep listening to touchstart
+          // document.removeEventListener("scroll", handleInteraction);      // Keep listening to scroll
         }
       } else {
         document.removeEventListener("click", handleInteraction);

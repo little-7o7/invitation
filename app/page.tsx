@@ -1,5 +1,5 @@
 import Invitation from './components/Invitation';
 
 export default function Page() {
-  return <Invitation lang="uz" />;
+  return <Invitation lang="en" />;
 }

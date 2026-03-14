@@ -49,7 +49,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
   );
 
   const links = {
-    ru: rawName ? `/${rawName}` : "/",
+    ru: rawName ? `/ru/${rawName}` : "/ru",
     en: rawName ? `/en/${rawName}` : "/en",
     uz: rawName ? `/uz/${rawName}` : "/uz",
   };
