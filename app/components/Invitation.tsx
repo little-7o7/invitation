@@ -6,7 +6,7 @@ import Petals from "./invitation/Petals";
 import PageDecorations from "./invitation/PageDecorations";
 import Hero from "./invitation/Hero";
 import Intro from "./invitation/Intro";
-import Quote from "./invitation/Quote";
+// import Quote from "./invitation/Quote";
 import Countdown from "./invitation/Countdown";
 import EventDetails from "./invitation/EventDetails";
 import Gallery from "./invitation/Gallery";

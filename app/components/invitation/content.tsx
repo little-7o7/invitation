@@ -15,11 +15,11 @@ export const content = {
     withJoy: "С радостью и любовью",
     specialMoment: "Настал особенный момент",
     inviteText:
-      "Махмудхон и Диловархон с радостью приглашают вас разделить с ними праздник их свадьбы — день, сотканный из любви, смеха и тепла самых важных людей.",
+      "Махмудхон и Диловархон, с радостью приглашаем вас разделить с нами праздник нашей свадьбы — день, сотканный из любви, смеха и тепла самых важных людей.",
     quote: (
       <>
         Две души, одно сердце.
-        <br />В этот день мы скажем "да" совместной жизни —<br />и хотим, чтобы
+        <br />В этот день мы скажем &quot;да&quot; совместной жизни —<br />и хотим, чтобы
         вы были рядом с нами.
       </>
     ),
@@ -79,7 +79,7 @@ export const content = {
     withJoy: "With Joy & Love",
     specialMoment: "A special moment has arrived",
     inviteText:
-      "Maxmudxon and Dilovarxon joyfully invite you to share in the celebration of their wedding — a day woven with love, laughter, and the warmth of everyone who matters most.",
+      "Maxmudxon and Dilovarxon, we gladly invite you to share with us the celebration of our wedding - a day woven from love, laughter and warmth of the most important people.",
     quote: (
       <>
         Two souls, one heart.
@@ -149,8 +149,8 @@ export const content = {
       <>
         Ikki qalb, bitta yurak.
         <br />
-        Ushbu kunda biz butun umrga "ha" deymiz —<br />
-        va bu damlarda siz biz bilan birga bo'lishingizni xohlaymiz.
+        Ushbu kunda biz butun umrga &quot;ha&quot; deymiz —<br />
+        va bu damlarda siz biz bilan birga bo&apos;lishingizni xohlaymiz.
       </>
     ),
     time: "VAQT",
@@ -185,13 +185,13 @@ export const content = {
         Sizning tashrifingiz baxtli kunimizni yanada nurafshon etadi.
         <br />
         <br />
-        Ushbu muhim onlarni biz bilan baham ko'rganingiz uchun rahmat —<br />
-        siz sababli bu kun yanada go'zalroq bo'ladi.
+        Ushbu muhim onlarni biz bilan baham ko&apos;rganingiz uchun rahmat —<br />
+        siz sababli bu kun yanada go&apos;zalroq bo&apos;ladi.
         <br />
         <br />
-        Hayotingiz ham siz bizga ulashgan e'tibor kabi sevgi,
+        Hayotingiz ham siz bizga ulashgan e&apos;tibor kabi sevgi,
         <br />
-        quvonch va mo'jizalarga to'la bo'lsin.
+        quvonch va mo&apos;jizalarga to&apos;la bo&apos;lsin.
       </>
     ),
     venueFull: "Samarqand, O'zbekiston  ·  Fotima Sultan restorani",
