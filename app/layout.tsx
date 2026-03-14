@@ -1,18 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Pinyon_Script } from "next/font/google";
+import { Montserrat, Great_Vibes, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import MusicPlayer from "./components/MusicPlayer";
 
-const pinyonScript = Pinyon_Script({
+// Handwritten script font for names — elegant, romantic cursive
+const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-pinyon",
+  variable: "--font-great-vibes",
   display: "swap",
 });
 
+// Romantic Italian serif for headings, body text, and accents
+const cormorantGaramond = Cormorant_Garamond({
+  subsets: ["latin", "cyrillic"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
+// Minimal sans-serif for small uppercase tracking labels
 const montserrat = Montserrat({ 
   subsets: ["latin", "cyrillic"], 
-  weight: ["300", "400", "500"],
+  weight: ["200", "300", "400"],
   variable: "--font-montserrat",
   display: "swap",
 });
@@ -33,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${pinyonScript.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${greatVibes.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}>
       <body>
         {children}
         <MusicPlayer />

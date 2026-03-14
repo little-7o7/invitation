@@ -16,39 +16,40 @@ export default function MusicPlayer() {
         setIsPlaying(true);
         return true;
       } catch {
-        console.log("Autoplay prevented. Waiting for user interaction.");
-        setIsPlaying(false);
         return false;
       }
     };
 
-    // Try playing immediately
+    // Try autoplay immediately (works in some browsers)
     playAudio();
 
-    // Also play upon user interaction
-    const handleInteraction = async () => {
+    // Start music on first scroll
+    const handleScroll = async () => {
       if (audio.paused) {
         const success = await playAudio();
         if (success) {
-          document.removeEventListener("click", handleInteraction);
-          // document.removeEventListener("touchstart", handleInteraction);  // Keep listening to touchstart
-          // document.removeEventListener("scroll", handleInteraction);      // Keep listening to scroll
+          window.removeEventListener("scroll", handleScroll);
         }
       } else {
-        document.removeEventListener("click", handleInteraction);
-        document.removeEventListener("touchstart", handleInteraction);
-        document.removeEventListener("scroll", handleInteraction);
+        window.removeEventListener("scroll", handleScroll);
       }
     };
 
+    // Also start on click or touch as fallback
+    const handleInteraction = async () => {
+      if (audio.paused) {
+        await playAudio();
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     document.addEventListener("click", handleInteraction);
     document.addEventListener("touchstart", handleInteraction);
-    document.addEventListener("scroll", handleInteraction);
 
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener("click", handleInteraction);
       document.removeEventListener("touchstart", handleInteraction);
-      document.removeEventListener("scroll", handleInteraction);
     };
   }, []);
 
