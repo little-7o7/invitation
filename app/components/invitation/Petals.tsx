@@ -38,7 +38,7 @@ export default function Petals() {
       const newPetal: Petal = {
         id: nextPetalId.current++,
         type,
-        left: `${Math.random() * 100}vw`,
+        left: `${Math.random() * 92}vw`,
         width: `${sz}px`,
         height: type === "heart" ? `${sz}px` : `${sz * 1.6}px`,
         color:
