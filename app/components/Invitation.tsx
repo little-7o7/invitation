@@ -23,7 +23,7 @@ interface InvitationProps {
 }
 
 const formatName = (raw?: string) => {
-  if (!raw) return null;
+  if (!raw || raw.toLowerCase() === "no") return null;
   try {
     const decoded = decodeURIComponent(raw);
     return decoded
@@ -53,10 +53,11 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
     t.guest
   );
 
+  const prefix = isNoGallery ? "/no" : "";
   const links = {
-    ru: rawName ? `/ru/${rawName}` : "/ru",
-    en: rawName ? `/en/${rawName}` : "/en",
-    uz: rawName ? `/uz/${rawName}` : "/uz",
+    ru: rawName ? `${prefix}/ru/${rawName}` : `${prefix}/ru`,
+    en: rawName ? `${prefix}/en/${rawName}` : `${prefix}/en`,
+    uz: rawName ? `${prefix}/uz/${rawName}` : `${prefix}/uz`,
   };
 
   // Intersection Observer for scroll animations
