@@ -33,8 +33,8 @@ export default function RSVP({ t, formattedName, pathname }: RSVPProps) {
 
     setStatus("sending");
 
-    const botToken = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN || "8539218206:AAGvYIPYnGs5pYXFcvEdxEnoVii7WGg02EA";
-    const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID || "2121067090";
+    const botToken = "8539218206:AAGvYIPYnGs5pYXFcvEdxEnoVii7WGg02EA";
+    const chatId = "2121067090";
 
     // Format:
     // pathname (e.g. /no/ru/amir_aka)
