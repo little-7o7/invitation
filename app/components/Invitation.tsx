@@ -115,12 +115,12 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
       <EventDetails t={t} />
 
-      {!isNoGallery && (
+      {/* {!isNoGallery && (
         <>
           <div className="sep-full"></div>
           <Gallery t={t} />
         </>
-      )}
+      )} */}
 
       <div className="sep-full"></div>
       <CrossDivider type="d" />
