@@ -31,6 +31,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Maxmudxon & Dilovarxon",
   description: "Wedding Invitation",
+  other: {
+    google: "notranslate",
+  },
 };
 
 export const viewport: Viewport = {
@@ -44,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${greatVibes.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}>
+    <html lang="en" translate="no" className={`notranslate ${greatVibes.variable} ${cormorantGaramond.variable} ${montserrat.variable}`}>
       <body>
         {children}
         <MusicPlayer />

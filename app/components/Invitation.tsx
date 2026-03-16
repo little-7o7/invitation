@@ -11,6 +11,7 @@ import Countdown from "./invitation/Countdown";
 import EventDetails from "./invitation/EventDetails";
 import Gallery from "./invitation/Gallery";
 import Venue from "./invitation/Venue";
+import RSVP from "./invitation/RSVP";
 import Gratitude from "./invitation/Gratitude";
 import Footer from "./invitation/Footer";
 import LanguageSelector from "./invitation/LanguageSelector";
@@ -41,7 +42,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
   const t = content[lang];
   const pathname = usePathname();
   const isNoGallery = pathname?.startsWith("/no");
-  
+
   const formattedName = formatName(rawName);
   const displayName = formattedName ? (
     <>
@@ -60,16 +61,21 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
   // Intersection Observer for scroll animations
   useEffect(() => {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    document.querySelectorAll('.rev, .rev-l, .rev-r, .rev-s').forEach(el => obs.observe(el));
-    
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document
+      .querySelectorAll(".rev, .rev-l, .rev-r, .rev-s")
+      .forEach((el) => obs.observe(el));
+
     return () => obs.disconnect();
   }, []);
 
@@ -77,53 +83,59 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
     <>
       <Petals />
       <PageDecorations />
-      
+
       <Hero t={t} displayName={displayName} />
-      
+
       <div className="sep-full"></div>
       <CrossDivider type="a" />
       <div className="sep-full"></div>
-      
+
       <Intro t={t} />
-      
+
       <div className="sep-full"></div>
-      
+
       {/* <Quote t={t} /> */}
-      
+
       <div className="sep-full"></div>
       <CrossDivider type="b" t={t} />
       <div className="sep-full"></div>
-      
+
       <Countdown t={t} />
-      
+
       <div className="sep-full"></div>
       <CrossDivider type="c" />
       <div className="sep-full"></div>
-      
+
       <EventDetails t={t} />
-      
+
       {!isNoGallery && (
         <>
           <div className="sep-full"></div>
           <Gallery t={t} />
         </>
       )}
-      
+
       <div className="sep-full"></div>
       <CrossDivider type="d" />
       <div className="sep-full"></div>
-      
+
       <Venue t={t} />
-      
+
       <div className="sep-full"></div>
       <CrossDivider type="e" />
       <div className="sep-full"></div>
-      
+
       <Gratitude t={t} />
-      
+
+      <div className="sep-full"></div>
+      <CrossDivider type="a" />
+      <div className="sep-full"></div>
+
+      <RSVP t={t} rawName={rawName} formattedName={formattedName} pathname={pathname} />
+
       <div className="sep-full"></div>
       <Footer t={t} />
-      
+
       <LanguageSelector t={t} lang={lang} links={links} />
     </>
   );

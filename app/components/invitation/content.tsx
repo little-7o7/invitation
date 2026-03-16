@@ -66,6 +66,14 @@ export const content = {
       </>
     ),
     venueFull: "Самарканд, Узбекистан  ·  Ресторан Fotima Sultan",
+    rsvpTitle: "БУДЕТЕ ЛИ ВЫ С НАМИ?",
+    rsvpNameLabel: "Ваше имя",
+    rsvpYes: "Да, с удовольствием!",
+    rsvpNo: "К сожалению, не смогу",
+    rsvpReasonLabel: "Укажите причину",
+    rsvpSubmit: "Отправить",
+    rsvpSuccess: "Спасибо! Ваш ответ отправлен.",
+    rsvpError: "Произошла ошибка. Попробуйте снова.",
   },
   en: {
     guest: "Dear Guest",
@@ -131,6 +139,14 @@ export const content = {
       </>
     ),
     venueFull: "Samarkand, Uzbekistan  ·  Fotima Sultan Restaurant",
+    rsvpTitle: "WILL YOU BE WITH US?",
+    rsvpNameLabel: "Your Name",
+    rsvpYes: "Yes, with pleasure!",
+    rsvpNo: "Unfortunately, I can't",
+    rsvpReasonLabel: "Please state the reason",
+    rsvpSubmit: "Send",
+    rsvpSuccess: "Thank you! Your response has been sent.",
+    rsvpError: "An error occurred. Please try again.",
   },
   uz: {
     guest: "Hurmatli Mehmon",
@@ -196,6 +212,14 @@ export const content = {
       </>
     ),
     venueFull: "Samarqand, O'zbekiston  ·  Fotima Sultan restorani",
+    rsvpTitle: "BIZ BILAN BO'LASIZMI?",
+    rsvpNameLabel: "Ismingiz",
+    rsvpYes: "Ha, bajonidil!",
+    rsvpNo: "Afsuski, kela olmayman",
+    rsvpReasonLabel: "Sababini ko'rsating",
+    rsvpSubmit: "Yuborish",
+    rsvpSuccess: "Rahmat! Javobingiz yuborildi.",
+    rsvpError: "Xatolik yuz berdi. Qayta urinib ko'ring.",
   },
 };
 
