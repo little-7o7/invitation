@@ -131,7 +131,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
       <CrossDivider type="a" />
       <div className="sep-full"></div>
 
-      <RSVP t={t} rawName={rawName} formattedName={formattedName} pathname={pathname} />
+      <RSVP t={t} lang={lang} formattedName={formattedName} pathname={pathname} />
 
       <div className="sep-full"></div>
       <Footer t={t} />
