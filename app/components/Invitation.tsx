@@ -39,11 +39,17 @@ const formatName = (raw?: string) => {
 };
 
 export default function Invitation({ lang, rawName }: InvitationProps) {
-  const t = content[lang];
   const pathname = usePathname();
   const isNoGallery = pathname?.startsWith("/no");
 
-  const formattedName = formatName(rawName);
+  // Handle cases where the language segment (e.g. in /no/[lang]) is actually a guest name
+  const isInvalidLang = !content[lang];
+  const effectiveLang = isInvalidLang ? "en" : lang;
+  const effectiveName = isInvalidLang && !rawName ? lang : rawName;
+
+  const t = content[effectiveLang] || content["en"];
+  
+  const formattedName = formatName(effectiveName);
   const displayName = formattedName ? (
     <>
       {t.prefix} <br />
@@ -55,9 +61,9 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
   const prefix = isNoGallery ? "/no" : "";
   const links = {
-    ru: rawName ? `${prefix}/ru/${rawName}` : `${prefix}/ru`,
-    en: rawName ? `${prefix}/en/${rawName}` : `${prefix}/en`,
-    uz: rawName ? `${prefix}/uz/${rawName}` : `${prefix}/uz`,
+    ru: effectiveName ? `${prefix}/ru/${effectiveName}` : `${prefix}/ru`,
+    en: effectiveName ? `${prefix}/en/${effectiveName}` : `${prefix}/en`,
+    uz: effectiveName ? `${prefix}/uz/${effectiveName}` : `${prefix}/uz`,
   };
 
   // Intersection Observer for scroll animations
