@@ -1,4 +1,7 @@
 import type { NextConfig } from "next";
+import ip from "ip";
+
+const localIP = ip.address();
 
 const nextConfig: NextConfig = {
   images: {
@@ -17,6 +20,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  allowedDevOrigins: [
+    `http://${localIP}:3000`,
+    localIP,
+    "localhost"
+  ],
 };
 
 export default nextConfig;
