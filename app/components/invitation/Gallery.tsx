@@ -121,6 +121,7 @@ export default function Gallery({ t }: { t: Translations }) {
             fill
             sizes="(max-width: 768px) 100vw, 1200px"
             style={{ objectFit: "cover" }}
+            priority
           />
         </div>
         <div className="gc gc-2 rev-l">
