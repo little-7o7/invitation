@@ -6,7 +6,7 @@ import Petals from "./invitation/Petals";
 import PageDecorations from "./invitation/PageDecorations";
 import Hero from "./invitation/Hero";
 import Intro from "./invitation/Intro";
-// import Quote from "./invitation/Quote";
+import Quote from "./invitation/Quote";
 import Countdown from "./invitation/Countdown";
 import EventDetails from "./invitation/EventDetails";
 import Gallery from "./invitation/Gallery";
@@ -48,7 +48,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
   const effectiveName = isInvalidLang && !rawName ? lang : rawName;
 
   const t = content[effectiveLang] || content["en"];
-  
+
   const formattedName = formatName(effectiveName);
   const displayName = formattedName ? (
     <>
@@ -101,7 +101,7 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
       <div className="sep-full"></div>
 
-      {/* <Quote t={t} /> */}
+      <Quote t={t} />
 
       <div className="sep-full"></div>
       <CrossDivider type="b" t={t} />
@@ -115,12 +115,12 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
 
       <EventDetails t={t} />
 
-      {/* {!isNoGallery && (
+      {!isNoGallery && (
         <>
           <div className="sep-full"></div>
           <Gallery t={t} />
         </>
-      )} */}
+      )}
 
       <div className="sep-full"></div>
       <CrossDivider type="d" />
@@ -138,7 +138,12 @@ export default function Invitation({ lang, rawName }: InvitationProps) {
       <CrossDivider type="a" />
       <div className="sep-full"></div>
 
-      <RSVP t={t} lang={lang} formattedName={formattedName} pathname={pathname} />
+      <RSVP
+        t={t}
+        lang={lang}
+        formattedName={formattedName}
+        pathname={pathname}
+      />
 
       <div className="sep-full"></div>
       <Footer t={t} />

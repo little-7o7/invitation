@@ -116,42 +116,39 @@ export default function Gallery({ t }: { t: Translations }) {
       <div className="gal-grid">
         <div className="gc gc-1 rev-s">
           <Image
-            src="/photo1.png"
+            src="/photo1.JPG"
             alt="Gallery photo 1"
             fill
             sizes="(max-width: 768px) 100vw, 1200px"
             style={{ objectFit: "cover" }}
-            loading="lazy"
+            loading="eager"
           />
         </div>
         <div className="gc gc-2 rev-l">
           <Image
-            src="/photo2.png"
+            src="/photo2.JPG"
             alt="Gallery photo 2"
             fill
             sizes="(max-width: 768px) 50vw, 600px"
             style={{ objectFit: "cover" }}
-            loading="lazy"
           />
         </div>
         <div className="gc gc-3 rev-r">
           <Image
-            src="/photo3.png"
+            src="/photo3.JPG"
             alt="Gallery photo 3"
             fill
             sizes="(max-width: 768px) 50vw, 600px"
             style={{ objectFit: "cover" }}
-            loading="lazy"
           />
         </div>
         <div className="gc gc-4 rev-s">
           <Image
-            src="/photo4.png"
+            src="/photo4.JPG"
             alt="Gallery photo 4"
             fill
             sizes="(max-width: 768px) 100vw, 1200px"
             style={{ objectFit: "cover" }}
-            loading="lazy"
           />
         </div>
       </div>
